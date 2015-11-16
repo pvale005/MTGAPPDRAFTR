@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Pablo\AndroidStudioProjects\Draftr2\app\build\intermediates\exploded-aar\com.github.blackfizz\eazegraph\1.2.2\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="2584bbecc58c666b0e064ebce64f67a46bfa2aba">
+        <dex dex="C:\Users\Pablo\AndroidStudioProjects\Draftr2\app\build\intermediates\pre-dexed\debug\classes-13e90f96c9679496eca1d1a897efa61e60ef503b.jar" />
+    </item>
+    <item
+        jar="C:\Users\Pablo\AndroidStudioProjects\Draftr2\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="C:\Users\Pablo\AndroidStudioProjects\Draftr2\app\build\intermediates\pre-dexed\debug\classes-0803b4b18ff96f75cf0c49ff52c42fb5985057a9.jar" />
+    </item>
+    <item
+        jar="C:\Users\Pablo\AndroidStudioProjects\Draftr2\app\libs\mpandroidchartlibrary-2-1-5.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a7650f11d4eb03995f4450562cc271d5f790c992">
+        <dex dex="C:\Users\Pablo\AndroidStudioProjects\Draftr2\app\build\intermediates\pre-dexed\debug\mpandroidchartlibrary-2-1-5-60f0128c300cc2f7bb8eba9ae113c4f4181f790a.jar" />
+    </item>
+    <item
+        jar="C:\Users\Pablo\AndroidStudioProjects\Draftr2\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="C:\Users\Pablo\AndroidStudioProjects\Draftr2\app\build\intermediates\pre-dexed\debug\classes-53202c7663ecae9247e3eba3a90dbefa16c4f572.jar" />
+    </item>
+    <item
+        jar="C:\Users\Pablo\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="C:\Users\Pablo\AndroidStudioProjects\Draftr2\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.1-86c3e6531b55300c6531f197de02e063ae15eb2b.jar" />
+    </item>
+    <item
+        jar="C:\Users\Pablo\AndroidStudioProjects\Draftr2\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="C:\Users\Pablo\AndroidStudioProjects\Draftr2\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1-dc515ec779193a0785b3494825d5b865fbabea59.jar" />
+    </item>
+    <item
+        jar="C:\Users\Pablo\AndroidStudioProjects\Draftr2\app\libs\jackson-annotations-2.6.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a0990e2e812ac6639b6ce955c91b13228500476e">
+        <dex dex="C:\Users\Pablo\AndroidStudioProjects\Draftr2\app\build\intermediates\pre-dexed\debug\jackson-annotations-2.6.0-0d1dda12a390ab44c8f52f0ec1ddf811be8f4a5a.jar" />
+    </item>
+    <item
+        jar="C:\Users\Pablo\AndroidStudioProjects\Draftr2\app\libs\jackson-core-2.5.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="b2ece1bd57ac7b4c315b7505b65ac79cb1da4270">
+        <dex dex="C:\Users\Pablo\AndroidStudioProjects\Draftr2\app\build\intermediates\pre-dexed\debug\jackson-core-2.5.0-f29e500925429cbf5f54637bf637a38f59f9ea08.jar" />
+    </item>
+    <item
+        jar="C:\Users\Pablo\AndroidStudioProjects\Draftr2\app\libs\jackson-databind-2.3.5.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="bcf2820b8e4150b3dac1f74159718340efbfb615">
+        <dex dex="C:\Users\Pablo\AndroidStudioProjects\Draftr2\app\build\intermediates\pre-dexed\debug\jackson-databind-2.3.5-2c00d22bc31354a2a47c87a7d0b5ca8ba071a5be.jar" />
+    </item>
+    <item
+        jar="C:\Users\Pablo\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="C:\Users\Pablo\AndroidStudioProjects\Draftr2\app\build\intermediates\pre-dexed\debug\library-2.4.0-c672d47e4c6bb0cbefd788c5ef35d0524939e1a5.jar" />
+    </item>
+
+</items>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PieGraph"></declare-styleable>
+    <declare-styleable name="PieGraph_pieInnerCircleRatio"></declare-styleable>
+    <declare-styleable name="PieGraph_pieSlicePadding"></declare-styleable>
+    <declare-styleable name="LineGraph"></declare-styleable>
+</resources>

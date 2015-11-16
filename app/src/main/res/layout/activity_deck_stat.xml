@@ -1,0 +1,115 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/scrollView" >
+<RelativeLayout
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="wrap_content" android:paddingLeft="@dimen/activity_horizontal_margin"
+    tools:context="com.example.pablo.draftr2.deck_stat">
+    <org.eazegraph.lib.charts.ValueLineChart
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cubiclinechart"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:egUseCubic="true"
+        app:egUseOverlapFill="true"
+        app:egCurveSmoothness="0.4"
+        app:egIndicatorLineColor="#FE6DA8"
+        app:egLegendHeight="40dp"
+        app:egShowStandardValue="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <org.eazegraph.lib.charts.PieChart
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/piechart"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:padding="8dp"
+        app:egLegendTextSize="18sp"
+        app:egUsePieRotation="true"
+        app:egValueTextSize="36sp"
+        android:layout_below="@+id/cubiclinechart"
+        android:layout_alignRight="@+id/cubiclinechart"
+        android:layout_alignEnd="@+id/cubiclinechart" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/textView"
+        android:layout_below="@+id/piechart"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Lands:"
+        android:id="@+id/textView3"
+        android:layout_alignBottom="@+id/editText"
+        android:layout_toRightOf="@+id/btn_clip"
+        android:layout_toEndOf="@+id/btn_clip" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_below="@+id/textView"
+        android:layout_toLeftOf="@+id/btn_set"
+        android:layout_toRightOf="@+id/textView3"
+        android:layout_toEndOf="@+id/textView3" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Lands"
+        android:id="@+id/btn_set"
+        android:onClick="landSetter"
+        android:layout_alignTop="@+id/editText"
+        android:layout_alignRight="@+id/piechart"
+        android:layout_alignEnd="@+id/piechart" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clipboard"
+        android:id="@+id/btn_clip"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/space"
+        android:layout_toEndOf="@+id/space"
+        android:onClick="clipBoard" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save to File"
+        android:id="@+id/btn_save"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/btn_clip"
+        android:layout_toEndOf="@+id/btn_clip" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Random Hand"
+        android:id="@+id/btn_hand"
+        android:layout_below="@+id/btn_set"
+        android:layout_toRightOf="@+id/btn_save"
+        android:layout_toEndOf="@+id/btn_save" />
+
+    <Space
+        android:layout_width="20px"
+        android:layout_height="20px"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:id="@+id/space" />
+
+</RelativeLayout>
+    </ScrollView>

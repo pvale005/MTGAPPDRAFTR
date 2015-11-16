@@ -1,0 +1,249 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/wee"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.pablo.draftr2.land_select">
+
+    <Button
+        android:id="@+id/P1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView4"
+        android:onClick="buttonHandler"
+        android:text="-1" />
+
+    <Button
+        android:id="@+id/P2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txtW"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:onClick="buttonHandler"
+        android:text="+1" />
+
+    <EditText
+        android:id="@+id/txtW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/P1"
+        android:layout_toLeftOf="@+id/P2"
+        android:layout_toRightOf="@+id/P1"
+        android:layout_toStartOf="@+id/P2"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Medium Textv"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtW"
+        android:layout_centerHorizontal="true"
+        android:text="Islands"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/I1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/P1"
+        android:layout_alignStart="@+id/P1"
+        android:layout_below="@+id/textView5"
+        android:onClick="buttonHandler"
+        android:text="-1" />
+
+    <Button
+        android:id="@+id/I2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/I1"
+        android:layout_alignEnd="@+id/P2"
+        android:layout_alignRight="@+id/P2"
+        android:onClick="buttonHandler"
+        android:text="+1" />
+
+    <EditText
+        android:id="@+id/txtU"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/I1"
+        android:layout_toLeftOf="@+id/I2"
+        android:layout_toRightOf="@+id/I1"
+        android:layout_toStartOf="@+id/I2"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/I1"
+        android:layout_centerHorizontal="true"
+        android:text="Swamps"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/S1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/I1"
+        android:layout_alignStart="@+id/I1"
+        android:layout_below="@+id/textView6"
+        android:onClick="buttonHandler"
+        android:text="-1" />
+
+    <Button
+        android:id="@+id/S2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/I2"
+        android:layout_alignRight="@+id/I2"
+        android:layout_below="@+id/textView6"
+        android:onClick="buttonHandler"
+        android:text="+1" />
+
+    <EditText
+        android:id="@+id/txtB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView6"
+        android:layout_toLeftOf="@+id/S2"
+        android:layout_toRightOf="@+id/S1"
+        android:layout_toStartOf="@+id/S2"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtB"
+        android:layout_centerHorizontal="true"
+        android:text="Mountains"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/M1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/S1"
+        android:layout_alignStart="@+id/S1"
+        android:layout_below="@+id/textView7"
+        android:onClick="buttonHandler"
+        android:text="-1" />
+
+    <Button
+        android:id="@+id/M2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/M1"
+        android:layout_alignEnd="@+id/S2"
+        android:layout_alignRight="@+id/S2"
+        android:onClick="buttonHandler"
+        android:text="+1" />
+
+    <EditText
+        android:id="@+id/txtR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/M1"
+        android:layout_toLeftOf="@+id/M2"
+        android:layout_toRightOf="@+id/M1"
+        android:layout_toStartOf="@+id/M2"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/M1"
+        android:layout_centerHorizontal="true"
+        android:text="Forests"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/F1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/M1"
+        android:layout_alignStart="@+id/M1"
+        android:layout_below="@+id/textView8"
+        android:onClick="buttonHandler"
+        android:text="-1" />
+
+    <Button
+        android:id="@+id/F2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView8"
+        android:layout_toEndOf="@+id/txtR"
+        android:layout_toRightOf="@+id/txtR"
+        android:onClick="buttonHandler"
+        android:text="+1" />
+
+    <EditText
+        android:id="@+id/txtG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/F2"
+        android:layout_toLeftOf="@+id/F2"
+        android:layout_toRightOf="@+id/F1"
+        android:layout_toStartOf="@+id/F2"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView5"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/textView5"
+        android:text="Plains"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="end"
+        android:text="Cancel" />
+
+    <Button
+        android:id="@+id/button12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/F2"
+        android:layout_alignStart="@+id/F2"
+        android:layout_alignTop="@+id/button11"
+        android:onClick="ok"
+        android:text="Ok" />
+</RelativeLayout>

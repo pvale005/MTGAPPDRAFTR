@@ -233,15 +233,19 @@ public class Card {
 
     public String getCardColor(ArrayList<String> colors){
         String cardColor = "";
+        //If the colors field is null that means it doesn't have a color
         if(colors == null){
             cardColor = "Colorless";
             return cardColor;
         }
+        //If there is more than one color it means that its mostly likely a gold bordered cards
+        //Wizards hasn't printed hybrid cards in some time. POSSIBLE REVISIT
         if(colors.size() > 1){
-        cardColor = "Gold";
-        return cardColor;
+            cardColor = "Gold";
+            return cardColor;
         }
         else
+        //Just return the monocolored card's color value
             cardColor = colors.get(0);
             return cardColor;
     }

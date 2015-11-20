@@ -45,7 +45,8 @@ public class land_select extends Activity {
         unpack();
 
         total = red + green + blue + black + white;
-
+        //This is how lands are calculated but it seems that are some rounding errors that are occuring sometimes
+        //The logic need to be ironed out
         mountain = (int) Math.round((red / total) * lands);
         forest = (int) Math.round((green / total) * lands);
         island = (int) Math.round((blue / total) * lands);

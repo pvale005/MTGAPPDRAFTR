@@ -2,9 +2,6 @@ package com.example.pablo.draftr2;
 
 import java.util.ArrayList;
 //Encapsulates all the attributes of an MTG set
-/**
- * Created by Pablo on 10/16/2015.
- */
 public class Set {
     private String name;
     private String code;

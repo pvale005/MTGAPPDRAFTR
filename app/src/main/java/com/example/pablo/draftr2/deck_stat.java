@@ -1,12 +1,15 @@
 package com.example.pablo.draftr2;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ClipData;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import android.content.ClipboardManager;
+import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,19 +23,24 @@ import org.eazegraph.lib.models.PieModel;
 import org.eazegraph.lib.models.ValueLinePoint;
 import org.eazegraph.lib.models.ValueLineSeries;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.TreeMap;
 
 public class deck_stat extends Activity {
     ArrayList<ListModel> deckList;
-    Map<String, Integer> deck = new TreeMap<>();
 
+    Map<String, Integer> deck = new TreeMap<>();
+    Map<Integer, String> deckMap = new TreeMap<>();
     Map<Integer, Integer> manaCostMap = new TreeMap<>();
     Map<String, Integer> manaSymMap = new HashMap<>();
     Map<String, Integer> cardTypeMap = new HashMap<>();
-
     int red;
     int green;
     int blue;
@@ -43,10 +51,10 @@ public class deck_stat extends Activity {
     int island = 0;
     int swamp = 0;
     int plain = 0;
-    int lands = 17;
+    int lands = 18;
     boolean landSelected = false;
     int maxCMC = -1;
-
+    EditText etxtLands;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +64,8 @@ public class deck_stat extends Activity {
         getStats(deckList);
         genPieChart();
         genCurveChart();
+        etxtLands = (EditText) findViewById(R.id.etxtLand);
+        etxtLands.setText("" + lands);
         TextView txtTypes = (TextView) findViewById(R.id.textView);
         String totalTypes = "Draft Breakdown\n\n";
         for (String s : cardTypeMap.keySet()) {
@@ -146,6 +156,8 @@ public class deck_stat extends Activity {
     }
 
     public void landSetter(View v) {
+        //TODO Cut lands already selected
+        lands = Integer.parseInt(etxtLands.getText().toString());
         Intent intent = new Intent(this, land_select.class);
         intent.putExtra("Red", red);
         intent.putExtra("Green", green);
@@ -174,12 +186,18 @@ public class deck_stat extends Activity {
     }
 
     public void clipBoard(View v) {
-        fillDeckList();
-        ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-        ClipData clip = ClipData.newPlainText("Deck List", writeList());
-        clipboard.setPrimaryClip(clip);
-        Toast.makeText(getApplicationContext(), "Deck List Copied",
-                Toast.LENGTH_SHORT).show();
+        if(!landSelected){
+            Toast.makeText(getApplicationContext(), "ERROR: Must Select LANDS first!!!",
+                    Toast.LENGTH_SHORT).show();
+        }
+        else {
+            fillDeckList();
+            ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+            ClipData clip = ClipData.newPlainText("Deck List", writeList());
+            clipboard.setPrimaryClip(clip);
+            Toast.makeText(getApplicationContext(), "Deck List Copied",
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 
     public String writeList() {
@@ -189,8 +207,31 @@ public class deck_stat extends Activity {
         }
         return list;
     }
+    public void toFile(View v){
 
+        //Under Testing
+        if(!landSelected){
+            Toast.makeText(getApplicationContext(), "ERROR: Must Select LANDS first!!!",
+                    Toast.LENGTH_SHORT).show();
+        }
+        else {
+            String content = "Tester";
+            File file;
+            FileOutputStream outputStream;
+            try {
+                file = new File(Environment.getExternalStorageDirectory(), "MyDecks");
+                outputStream = new FileOutputStream(file);
+                outputStream.write(content.getBytes());
+                outputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
     public void fillDeckList() {
+        //Clear the list to avoid duplicate cases.
+        deck.clear();
+        //Next we are going to check every land type and add it to the list if it has a quantity greater than zero.
         if (mountain != 0)
             deck.put("Mountain", mountain);
         if (island != 0)
@@ -201,13 +242,15 @@ public class deck_stat extends Activity {
             deck.put("Swamp", swamp);
         if (plain != 0)
             deck.put("Plains", plain);
+        //Lastly add everything else into our deck list.
         for (ListModel l : deckList) {
             deck.put(l.cname, l.quantity);
         }
     }
 
     public void makeDeckObject() {
-        Map<Integer, String> deckMap = new HashMap<>();
+        fillDeckList();
+
         int j = 0;
         for (String s : deck.keySet()) {
             for (int i = 0; i < deck.get(s); i++) {
@@ -215,9 +258,45 @@ public class deck_stat extends Activity {
                 j++;
             }
         }
-        System.out.println("");
+    }
+    public String genHand(){
+        String result = "";
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        for (int i=0; i<deckMap.size() - 1; i++) {
+            list.add(new Integer(i));
+        }
+        Collections.shuffle(list);
+        for (int i=0; i<7; i++) {
+            result += deckMap.get(list.get(i)) + "\n";
+        }
+        return result;
     }
 
+    public void showAlert(View v) {
+        if (!landSelected) {
+            Toast.makeText(getApplicationContext(), "ERROR: Must Select LANDS first!!!",
+                    Toast.LENGTH_SHORT).show();
+        } else {
+            makeDeckObject();
+            final AlertDialog.Builder myAlert = new AlertDialog.Builder(this);
+            myAlert.setMessage(genHand())
+                    .setPositiveButton("Redraw", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            myAlert.setMessage(genHand());
+                            myAlert.show();
+                        }
+                    })
+                    .setNegativeButton("Close", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .create();
+            myAlert.show();
+        }
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -236,7 +315,6 @@ public class deck_stat extends Activity {
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }

@@ -24,10 +24,10 @@ public class CustomAdaper extends ArrayAdapter<ListModel> {
         @SuppressLint("ViewHolder")
         View customView = custInflater.inflate(R.layout.custom_row, parent, false);
         ListModel lm = getItem(position);
-
+        //Get a refrence to the text controls in the
         TextView txtName = (TextView) customView.findViewById(R.id.txtName);
         TextView txtQuantity = (TextView) customView.findViewById(R.id.txtQuantity);
-
+        //Set the text controls in the custom view adapter.
         txtName.setText(lm.cname);
         txtQuantity.setText(lm.quantity.toString());
 

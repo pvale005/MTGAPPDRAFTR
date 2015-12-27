@@ -12,6 +12,8 @@ import android.widget.HeaderViewListAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -25,6 +27,9 @@ public class card_list extends Activity {
     private ListView mListView;
     private List<Card> allCards;
     public int cards = 0;
+    //Variables for the Drawer
+    private ListView mDrawerList;
+    private ArrayAdapter<String> mAdapter;
 
     public byte[] loadJSON() {
         try {
@@ -39,12 +44,21 @@ public class card_list extends Activity {
             return null;
         }
     }
+    private void addDrawerItems() {
+        String[] osArray = { "Android", "iOS", "Windows", "OS X", "Linux"};
+        mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, osArray);
+        mDrawerList.setAdapter(mAdapter);
+    }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_list);
+        mDrawerList = (ListView)findViewById(R.id.navList);
+        addDrawerItems();
+
+
         if (mListView == null) {
             //Sets the current listView to the listView control we are using.
             mListView = (ListView) findViewById(R.id.lv_cardCatalog);
@@ -62,7 +76,7 @@ public class card_list extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     final int position, long id) {
-                updateTxtNumber(cards +=1);
+                updateTxtNumber(cards += 1);
                 adapter.getItem(position).quantity += 1;
                 //oast.makeText(card_list.this, cdude, Toast.LENGTH_SHORT).show();
                 adapter.notifyDataSetChanged();
@@ -80,6 +94,12 @@ public class card_list extends Activity {
                     adapter.notifyDataSetChanged();
                     return true;
                 }
+            }
+        });
+        mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(card_list.this, "Time for an upgrade!", Toast.LENGTH_SHORT).show();
             }
         });
     }
